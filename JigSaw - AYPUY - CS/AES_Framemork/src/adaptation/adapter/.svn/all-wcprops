@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/146/trunk/AES_Framemork/src/adaptation/adapter
+END
+GuardRecieveProfiles.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/146/trunk/AES_Framemork/src/adaptation/adapter/GuardRecieveProfiles.java
+END
+AdaptQueryGuardAES.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/146/trunk/AES_Framemork/src/adaptation/adapter/AdaptQueryGuardAES.java
+END
+AdapterAgentAES.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/146/trunk/AES_Framemork/src/adaptation/adapter/AdapterAgentAES.java
+END
+AdapterAgentBESA.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/146/trunk/AES_Framemork/src/adaptation/adapter/AdapterAgentBESA.java
+END
+AdapterAgentStateAES.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/146/trunk/AES_Framemork/src/adaptation/adapter/AdapterAgentStateAES.java
+END

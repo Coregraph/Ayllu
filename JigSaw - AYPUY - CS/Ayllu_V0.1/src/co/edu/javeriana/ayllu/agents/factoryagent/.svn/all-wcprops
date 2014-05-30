@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/factoryagent
+END
+FA_CMAEndNestedServiceGuard.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/factoryagent/FA_CMAEndNestedServiceGuard.java
+END
+FactoryAgent.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/factoryagent/FactoryAgent.java
+END
+FactoryAgentState.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/factoryagent/FactoryAgentState.java
+END
+FA_CMACreationGuard.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/factoryagent/FA_CMACreationGuard.java
+END

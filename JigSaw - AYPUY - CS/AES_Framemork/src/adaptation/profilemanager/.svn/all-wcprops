@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/146/trunk/AES_Framemork/src/adaptation/profilemanager
+END
+ProfileManagerAES.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/146/trunk/AES_Framemork/src/adaptation/profilemanager/ProfileManagerAES.java
+END
+GuardRecieveFilterQuery.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/146/trunk/AES_Framemork/src/adaptation/profilemanager/GuardRecieveFilterQuery.java
+END
+GuardRecieveNewContext.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/146/trunk/AES_Framemork/src/adaptation/profilemanager/GuardRecieveNewContext.java
+END
+ProfileManagerStateAES.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/146/trunk/AES_Framemork/src/adaptation/profilemanager/ProfileManagerStateAES.java
+END

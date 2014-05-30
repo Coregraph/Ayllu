@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/149/trunk/AYPUY/src/aypuy/directorymanager/agent/guards
+END
+DIR_RegisterLogicalManagerAYPUY.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/149/trunk/AYPUY/src/aypuy/directorymanager/agent/guards/DIR_RegisterLogicalManagerAYPUY.java
+END
+DIR_InsertResourceAYPUY.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/149/trunk/AYPUY/src/aypuy/directorymanager/agent/guards/DIR_InsertResourceAYPUY.java
+END
+DIR_RequestResourceAYPUY.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/149/trunk/AYPUY/src/aypuy/directorymanager/agent/guards/DIR_RequestResourceAYPUY.java
+END

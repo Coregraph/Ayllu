@@ -1,0 +1,63 @@
+K 26
+svn:wc:ra_dav:activity-url
+V 14
+/svn/!svn/act/
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/151/trunk/PruebaIntegracion3_Servidor
+END
+AylluColores2.csv
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/119/trunk/PruebaIntegracion3_Servidor/AylluColores2.csv
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/153/trunk/PruebaIntegracion3_Servidor/build.xml
+END
+AylluColores2Original.csv
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/119/trunk/PruebaIntegracion3_Servidor/AylluColores2Original.csv
+END
+manifest.mf
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/36/trunk/PruebaIntegracion3_Servidor/manifest.mf
+END
+estudiantes.csv
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/121/trunk/PruebaIntegracion3_Servidor/estudiantes.csv
+END
+estudiantesOriginal.csv
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/119/trunk/PruebaIntegracion3_Servidor/estudiantesOriginal.csv
+END
+estudiantesWEKA.csv
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/121/trunk/PruebaIntegracion3_Servidor/estudiantesWEKA.csv
+END
+confbesa.xml
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/36/trunk/PruebaIntegracion3_Servidor/confbesa.xml
+END
+estudiantesWEKAOriginal.csv
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/119/trunk/PruebaIntegracion3_Servidor/estudiantesWEKAOriginal.csv
+END

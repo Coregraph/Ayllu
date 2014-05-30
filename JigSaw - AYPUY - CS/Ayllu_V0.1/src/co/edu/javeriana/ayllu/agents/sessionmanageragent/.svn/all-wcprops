@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/sessionmanageragent
+END
+SMA_ValidateUserLogin.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/sessionmanageragent/SMA_ValidateUserLogin.java
+END
+SMA_RegisterCooperativeServiceGuard.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/sessionmanageragent/SMA_RegisterCooperativeServiceGuard.java
+END
+SMA_ReceiveCARequestGuard.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/sessionmanageragent/SMA_ReceiveCARequestGuard.java
+END
+SessionManagerAgent.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/sessionmanageragent/SessionManagerAgent.java
+END
+SMA_ReceiveIARequestGuard.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/sessionmanageragent/SMA_ReceiveIARequestGuard.java
+END
+SMA_CreateCooperativeServiceGuard.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/sessionmanageragent/SMA_CreateCooperativeServiceGuard.java
+END
+SMA_ReceiveRAReplyGuard.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/sessionmanageragent/SMA_ReceiveRAReplyGuard.java
+END
+SessionManagerAgentState.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/sessionmanageragent/SessionManagerAgentState.java
+END
+SMA_ReceiveCMARequestGuard.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/sessionmanageragent/SMA_ReceiveCMARequestGuard.java
+END
+SMA_RegisterIAGuard.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/sessionmanageragent/SMA_RegisterIAGuard.java
+END

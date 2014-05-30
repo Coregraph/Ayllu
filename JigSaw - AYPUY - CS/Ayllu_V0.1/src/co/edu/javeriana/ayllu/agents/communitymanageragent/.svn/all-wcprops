@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/communitymanageragent
+END
+CommunityManagerAgentState.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/communitymanageragent/CommunityManagerAgentState.java
+END
+CMA_UserLookupGuard.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/communitymanageragent/CMA_UserLookupGuard.java
+END
+CMA_EndVolatileGroupGuard.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/communitymanageragent/CMA_EndVolatileGroupGuard.java
+END
+CMA_MessageCenter.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/3/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/communitymanageragent/CMA_MessageCenter.java
+END
+CMA_SendAwarenessMessageGuard.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/communitymanageragent/CMA_SendAwarenessMessageGuard.java
+END
+CMA_SendMessageToCAsGuard.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/communitymanageragent/CMA_SendMessageToCAsGuard.java
+END
+CommunityManagerAgent.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/communitymanageragent/CommunityManagerAgent.java
+END

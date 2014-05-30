@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/communication/contractnet
+END
+CMA_ContractNetState.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/communication/contractnet/CMA_ContractNetState.java
+END
+ContractNetWaitForProposalsGuard.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/communication/contractnet/ContractNetWaitForProposalsGuard.java
+END
+ReceiveContractNetProposalGuard.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/communication/contractnet/ReceiveContractNetProposalGuard.java
+END
+ContractNetCallForPurposalsGuard.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/communication/contractnet/ContractNetCallForPurposalsGuard.java
+END
+CMA_ContractNet.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/communication/contractnet/CMA_ContractNet.java
+END

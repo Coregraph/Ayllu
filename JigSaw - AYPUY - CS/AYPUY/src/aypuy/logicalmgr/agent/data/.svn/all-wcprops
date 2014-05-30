@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/149/trunk/AYPUY/src/aypuy/logicalmgr/agent/data
+END
+LMValidateHandlerData.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/149/trunk/AYPUY/src/aypuy/logicalmgr/agent/data/LMValidateHandlerData.java
+END
+LMRegisterPhysicalManagerData.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/149/trunk/AYPUY/src/aypuy/logicalmgr/agent/data/LMRegisterPhysicalManagerData.java
+END
+LMRequestResourceData.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/149/trunk/AYPUY/src/aypuy/logicalmgr/agent/data/LMRequestResourceData.java
+END
+LMInsertResourceData.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/149/trunk/AYPUY/src/aypuy/logicalmgr/agent/data/LMInsertResourceData.java
+END

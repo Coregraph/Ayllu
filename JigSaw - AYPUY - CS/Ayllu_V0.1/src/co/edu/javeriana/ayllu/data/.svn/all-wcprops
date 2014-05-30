@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/data
+END
+Ayllu_CARegisterData.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/data/Ayllu_CARegisterData.java
+END
+ResponseData.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/data/ResponseData.java
+END
+Ayllu_NotificationMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/data/Ayllu_NotificationMessage.java
+END
+Ayllu_CoopServRegistrationMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/data/Ayllu_CoopServRegistrationMessage.java
+END
+Ayllu_NumberOfStudensAwarenessData.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/data/Ayllu_NumberOfStudensAwarenessData.java
+END
+Ayllu_IARegisterData.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/data/Ayllu_IARegisterData.java
+END
+Ayllu_UserLoginData.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/data/Ayllu_UserLoginData.java
+END
+Ayllu_WallMessageData.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/data/Ayllu_WallMessageData.java
+END
+Ayllu_AwarenessMessageRequestData.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/data/Ayllu_AwarenessMessageRequestData.java
+END
+Ayllu_Data_Message.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/data/Ayllu_Data_Message.java
+END
+Ayllu_CoopServCreationMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/data/Ayllu_CoopServCreationMessage.java
+END
+Ayllu_Agent_Creation_Message.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/data/Ayllu_Agent_Creation_Message.java
+END
+Ayllu_EventTypes.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/126/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/data/Ayllu_EventTypes.java
+END

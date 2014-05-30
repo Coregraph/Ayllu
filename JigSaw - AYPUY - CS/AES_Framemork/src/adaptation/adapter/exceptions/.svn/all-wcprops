@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/105/trunk/AES_Framemork/src/adaptation/adapter/exceptions
+END
+FilterMismatchException.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/105/trunk/AES_Framemork/src/adaptation/adapter/exceptions/FilterMismatchException.java
+END
+NotEnoughFieldsException.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/105/trunk/AES_Framemork/src/adaptation/adapter/exceptions/NotEnoughFieldsException.java
+END

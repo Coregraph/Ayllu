@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/communityagent
+END
+CA_DisplayMessageGuard.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/communityagent/CA_DisplayMessageGuard.java
+END
+CommunityAgent.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/communityagent/CommunityAgent.java
+END
+AgentRole.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/communityagent/AgentRole.java
+END
+CommunityAgentState.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/communityagent/CommunityAgentState.java
+END
+CA_RegisterCoopServiceGuard.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/145/trunk/Ayllu_V0.1/src/co/edu/javeriana/ayllu/agents/communityagent/CA_RegisterCoopServiceGuard.java
+END
