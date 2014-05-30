@@ -1,0 +1,29 @@
+(deftemplate persona
+	(multislot nombres
+		(type STRING)
+		(cardinality 1 3)
+	)
+	(multislot apellidos
+		(type STRING)
+		(cardinality 1 2)
+	)
+	(slot edad
+		(type INTEGER)
+		(range 0 120)
+		(default 0)
+	)
+	(multislot nombresParejas
+		(type STRING)
+		(cardinality 0 4)
+	)
+	(slot numeroHijos
+		(type INTEGER)
+		(range 0 100)
+		(default 0)
+	)
+	(slot sexo
+		(type SYMBOL)
+		(allowed-symbols H M)
+		(default H)
+	)
+)

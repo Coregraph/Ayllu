@@ -1,0 +1,138 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package servicios.generarInformeTema;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import persistencia.Tema;
+
+/**
+ *
+ * @author Francisco
+ */
+public class DatosGenerarInformeTema {
+
+    
+    private ArrayList<Tema> temas;
+    private ArrayList<String> estudiantes;
+    private ArrayList<String> rolesEstudiantes;
+    private HashMap<Tema, Object> OAResumenPorTema;
+    private Tema temaManejado;
+    private int numeroTotalGruposTema;
+    private int numeroOAenviado;
+    private int estConfirmanRetro;
+
+    public DatosGenerarInformeTema() {
+        numeroTotalGruposTema = 0;
+        numeroOAenviado = 0;
+        estConfirmanRetro = 0;
+        temas = new ArrayList<Tema>();
+        estudiantes = new ArrayList<String>();   
+        rolesEstudiantes = new ArrayList<String>();   
+        OAResumenPorTema = new HashMap<Tema, Object>();
+    }
+   
+    /**
+     * @return the temaManejado
+     */
+    public Tema getTemaManejado() {
+        return temaManejado;
+    }
+
+    /**
+     * @param temaManejado the temaManejado to set
+     */
+    public void setTemaManejado(Tema temaManejado) {
+        this.temaManejado = temaManejado;
+    }
+    
+    public DatosGenerarInformeTema clonar()
+    {
+        DatosGenerarInformeTema datosGenerarInformeTema = new DatosGenerarInformeTema();
+        datosGenerarInformeTema.setEstudiantes(this.getEstudiantes());
+        datosGenerarInformeTema.setTemaManejado(this.getTemaManejado());
+        datosGenerarInformeTema.setTemas(this.getTemas());
+        datosGenerarInformeTema.setNumeroOAenviado(this.getNumeroOAenviado());
+        datosGenerarInformeTema.setEstConfirmanRetro(this.estConfirmanRetro);
+        return datosGenerarInformeTema;
+    }
+
+    /**
+     * @return the temas
+     */
+    public ArrayList<Tema> getTemas() {
+        return temas;
+    }
+
+    /**
+     * @param temas the temas to set
+     */
+    public void setTemas(ArrayList<Tema> temas) {
+        this.temas = temas;
+    }
+
+    /**
+     * @return the OAResumenPorTema
+     */
+    public HashMap<Tema, Object> getOAResumenPorTema() {
+        return OAResumenPorTema;
+    }
+
+    /**
+     * @param OAResumenPorTema the OAResumenPorTema to set
+     */
+    public void setOAResumenPorTema(HashMap<Tema, Object> OAResumenPorTema) {
+        this.OAResumenPorTema = OAResumenPorTema;
+    }
+
+    /**
+     * @return the numeroTotalGruposTema
+     */
+    public int getNumeroTotalGruposTema() {
+        return numeroTotalGruposTema;
+    }
+
+    /**
+     * @param numeroTotalGruposTema the numeroTotalGruposTema to set
+     */
+    public void setNumeroTotalGruposTema(int numeroTotalGruposTema) {
+        this.numeroTotalGruposTema = numeroTotalGruposTema;
+    }
+
+    public ArrayList<String> getEstudiantes() {
+        return estudiantes;
+    }
+
+    public void setEstudiantes(ArrayList<String> estudiantes) {
+        this.estudiantes = estudiantes;
+    }
+
+    public int getNumeroOAenviado() {
+        return numeroOAenviado;
+    }
+
+    public void setNumeroOAenviado(int numeroOAenviado) {
+        this.numeroOAenviado = numeroOAenviado;
+    }
+
+    public ArrayList<String> getRolesEstudiantes() {
+        return rolesEstudiantes;
+    }
+
+    public void setRolesEstudiantes(ArrayList<String> rolesEstudiantes) {
+        this.rolesEstudiantes = rolesEstudiantes;
+    }
+
+    public int getEstConfirmanRetro() {
+        return estConfirmanRetro;
+    }
+
+    public void setEstConfirmanRetro(int estConfirmanRetro) {
+        this.estConfirmanRetro = estConfirmanRetro;
+    }
+
+
+}

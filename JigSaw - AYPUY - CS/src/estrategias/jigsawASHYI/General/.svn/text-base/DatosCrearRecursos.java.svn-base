@@ -1,0 +1,30 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package estrategias.jigsawASHYI.General;
+
+import BESA.Kernel.Agent.Event.DataBESA;
+import java.util.List;
+
+/**
+ *
+ * @author Yolima
+ */
+public class DatosCrearProfesor extends DataBESA{
+   
+    private List<String> estudiantes;
+
+    public DatosCrearProfesor(List<String> estudiantes) {
+        this.estudiantes = estudiantes;
+    }
+
+    public List<String> getEstudiantes() {
+        return estudiantes;
+    }
+
+    public void setEstudiantes(List<String> estudiantes) {
+        this.estudiantes = estudiantes;
+    }
+    
+}

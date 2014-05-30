@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/data2/roles
+END
+rolProfesor.obj
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/36/trunk/PruebaIntegracion3_Servidor/data2/roles/rolProfesor.obj
+END
+rolEstudiante.obj
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/36/trunk/PruebaIntegracion3_Servidor/data2/roles/rolEstudiante.obj
+END
+rolSecretario.obj
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/data2/roles/rolSecretario.obj
+END

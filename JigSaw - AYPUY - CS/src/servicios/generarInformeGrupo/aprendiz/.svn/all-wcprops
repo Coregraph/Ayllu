@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/servicios/generarInformeGrupo/aprendiz
+END
+GuardaRecibirNotaInformeG.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/servicios/generarInformeGrupo/aprendiz/GuardaRecibirNotaInformeG.java
+END
+CA_AprendizGIG.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/servicios/generarInformeGrupo/aprendiz/CA_AprendizGIG.java
+END
+GuardaRecibirSolicitudInformeGrupo.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/servicios/generarInformeGrupo/aprendiz/GuardaRecibirSolicitudInformeGrupo.java
+END
+EstadoAprendizGIG.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/servicios/generarInformeGrupo/aprendiz/EstadoAprendizGIG.java
+END
+DatosAprendizGIG.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/servicios/generarInformeGrupo/aprendiz/DatosAprendizGIG.java
+END

@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/estrategias/jigsawASHYI/General
+END
+DatosRespuestaMATEOGB.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/estrategias/jigsawASHYI/General/DatosRespuestaMATEOGB.java
+END
+Estado_JigsawASHYI.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/127/trunk/PruebaIntegracion3_Servidor/src/estrategias/jigsawASHYI/General/Estado_JigsawASHYI.java
+END
+CMA_Jigsaw.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/estrategias/jigsawASHYI/General/CMA_Jigsaw.java
+END
+GuardaRespuestaOAGenerarInformeTema.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/estrategias/jigsawASHYI/General/GuardaRespuestaOAGenerarInformeTema.java
+END
+GuardaRespuestaPreguntasTemas.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/estrategias/jigsawASHYI/General/GuardaRespuestaPreguntasTemas.java
+END
+GuardaRespuestaRecuperarInformacion.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/estrategias/jigsawASHYI/General/GuardaRespuestaRecuperarInformacion.java
+END
+GuardaRespuestaMATEO.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/estrategias/jigsawASHYI/General/GuardaRespuestaMATEO.java
+END
+DatosCrearProfesor.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/estrategias/jigsawASHYI/General/DatosCrearProfesor.java
+END
+GuardaRespuestaOAGenerarInformeGrupo.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/estrategias/jigsawASHYI/General/GuardaRespuestaOAGenerarInformeGrupo.java
+END
+GuardaCrearProfesor.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/estrategias/jigsawASHYI/General/GuardaCrearProfesor.java
+END
+GuardaRespuestaPreguntasGrupo.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/estrategias/jigsawASHYI/General/GuardaRespuestaPreguntasGrupo.java
+END
+GuardaRespuestaAsignarTemas.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/estrategias/jigsawASHYI/General/GuardaRespuestaAsignarTemas.java
+END
+GuardaControlarJigsawASHYI.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/estrategias/jigsawASHYI/General/GuardaControlarJigsawASHYI.java
+END

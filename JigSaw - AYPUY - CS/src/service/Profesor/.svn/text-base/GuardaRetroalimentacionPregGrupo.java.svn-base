@@ -1,0 +1,55 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package service.Profesor;
+
+import BESA.ExceptionBESA;
+import BESA.Kernel.Agent.Event.EventBESA;
+import BESA.Kernel.Agent.GuardBESA;
+import BESA.Kernel.System.Directory.AgHandlerBESA;
+import co.edu.javeriana.ayllu.agents.sessionmanageragent.SMA_ReceiveCARequestGuard;
+import co.edu.javeriana.ayllu.data.Ayllu_Data_Message;
+import co.edu.javeriana.ayllu.data.Ayllu_EventTypes;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ *
+ * @author yolima
+ */
+public class GuardaRetroalimentacionPregGrupo extends GuardBESA {
+
+    @Override
+    public synchronized void funcExecGuard(EventBESA ebesa) {
+        try {
+            System.out.println("En GuardaRetroalimentacionPregGrupo");
+            
+            AgHandlerBESA myHandler = this.getAgent().getAdmLocal().getHandlerByAlias(this.getAgent().getAlias());            
+            
+            Ayllu_Data_Message theData = (Ayllu_Data_Message) ebesa.getData();
+            AgHandlerBESA senderHandler = theData.getSenderHandler();
+            
+            DatosRetroalimentacionGrupo datos = (DatosRetroalimentacionGrupo)theData.getMessage();
+            //Mostrar Tema preguntas y campos para retroalimentacion
+            
+            //pedir retroalimentación por teclado
+            // sma
+            EstadoProfesor miEstado = (EstadoProfesor) this.getAgent().getState();
+            AgHandlerBESA smaEstudiante = miEstado.getSessionManagerHandler();
+            datos.setAliasSecretario(senderHandler.getAlias());
+            Ayllu_Data_Message dataProfesor = new Ayllu_Data_Message(Ayllu_EventTypes.DISPLAY, myHandler,datos );
+            EventBESA eventProfesor = new EventBESA(SMA_ReceiveCARequestGuard.class.getName(),dataProfesor );
+            smaEstudiante.sendEvent(eventProfesor);
+//            Ayllu_Data_Message data = new Ayllu_Data_Message(Ayllu_EventTypes.QUEST_REPLY, myHandler, datos);
+//            EventBESA event = new EventBESA(GuardaRecibirRetroalimentacionPreguntasGrupo.class.getName(), data);
+//            senderHandler.sendEvent(event);
+            
+        } catch (ExceptionBESA ex) {
+            Logger.getLogger(GuardaRetroalimentacionPregGrupo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    
+}

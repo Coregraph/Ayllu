@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/servicios/recuperarInformacion
+END
+GuardaRecibirRespuestasRI.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/servicios/recuperarInformacion/GuardaRecibirRespuestasRI.java
+END
+GuardaRecuperarInformacion.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/servicios/recuperarInformacion/GuardaRecuperarInformacion.java
+END
+DatosRecuperarInformacion.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/servicios/recuperarInformacion/DatosRecuperarInformacion.java
+END
+CMA_RecuperarInformacion.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/servicios/recuperarInformacion/CMA_RecuperarInformacion.java
+END
+EstadoRecuperarInformacion.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/servicios/recuperarInformacion/EstadoRecuperarInformacion.java
+END
+GuardaFinServicio.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/servicios/recuperarInformacion/GuardaFinServicio.java
+END
+GuardaRespuestaAdaptacionOVA.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/servicios/recuperarInformacion/GuardaRespuestaAdaptacionOVA.java
+END

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/servicios/generarInformeGrupo
+END
+DatosGenerarInformeGrupo.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/132/trunk/PruebaIntegracion3_Servidor/src/servicios/generarInformeGrupo/DatosGenerarInformeGrupo.java
+END
+GuardaRecibirEvaluacionInformeGrupo.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/servicios/generarInformeGrupo/GuardaRecibirEvaluacionInformeGrupo.java
+END
+EstadoGenerarInformeGrupo.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/36/trunk/PruebaIntegracion3_Servidor/src/servicios/generarInformeGrupo/EstadoGenerarInformeGrupo.java
+END
+CMA_GenerarInformeGrupo.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/servicios/generarInformeGrupo/CMA_GenerarInformeGrupo.java
+END
+GuardaRecibirRetroalimentacionFinalG.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/servicios/generarInformeGrupo/GuardaRecibirRetroalimentacionFinalG.java
+END
+GuardaRecibirOAGeneracionInformesGrupo.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/servicios/generarInformeGrupo/GuardaRecibirOAGeneracionInformesGrupo.java
+END

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/servicios/generarInformeGrupo/secretario
+END
+GuardaRecibirRespuestasGenerarInformesGrupo.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/servicios/generarInformeGrupo/secretario/GuardaRecibirRespuestasGenerarInformesGrupo.java
+END
+EstadoSecretarioGIG.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/servicios/generarInformeGrupo/secretario/EstadoSecretarioGIG.java
+END
+DatosSecretarioGIG.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/servicios/generarInformeGrupo/secretario/DatosSecretarioGIG.java
+END

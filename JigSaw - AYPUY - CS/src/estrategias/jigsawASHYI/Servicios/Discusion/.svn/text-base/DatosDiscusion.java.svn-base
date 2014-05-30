@@ -1,0 +1,89 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package estrategias.jigsawASHYI.Servicios.Discusion;
+
+import BESA.Kernel.Agent.Event.DataBESA;
+import java.util.ArrayList;
+import persistencia.Tema;
+
+/**
+ *
+ * @author Yolima
+ */
+public class DatosDiscusion extends DataBESA{
+    
+    private Tema tema;
+    private ArrayList<String> grupo;
+    private ArrayList<String> grupoRoles;
+    private String aliasSecretario;
+    private int numeroEstudiantes;
+    private ArrayList<String> preguntas;
+
+    public DatosDiscusion(Tema tem,ArrayList<String> group, ArrayList<String> roleGroup, int numEst ) {
+        tema = tem;
+        grupo = group;
+        grupoRoles = roleGroup;
+        aliasSecretario = "";
+        numeroEstudiantes = numEst;
+        preguntas = new ArrayList<String>();
+    }
+
+    
+       /**
+     * @return the temaSeleccionado
+     */
+    public Tema getTema() {
+        return tema;
+    }
+
+    /**
+     * @param temaSeleccionado the temaSeleccionado to set
+     */
+    public void setTema(Tema tema) {
+        this.tema = tema;
+    }
+
+    public ArrayList<String> getPreguntas() {
+        return preguntas;
+    }
+
+    public void setPreguntas(ArrayList<String> preguntas) {
+        this.preguntas = preguntas;
+    }
+
+    public ArrayList<String> getGrupo() {
+        return grupo;
+    }
+
+    public void setGrupo(ArrayList<String> grupo) {
+        this.grupo = grupo;
+    }
+
+    public ArrayList<String> getGrupoRoles() {
+        return grupoRoles;
+    }
+
+    public void setGrupoRoles(ArrayList<String> grupoRoles) {
+        this.grupoRoles = grupoRoles;
+    }
+
+    public String getAliasSecretario() {
+        return aliasSecretario;
+    }
+
+    public void setAliasSecretario(String aliasSecretario) {
+        this.aliasSecretario = aliasSecretario;
+    }
+
+    public int getNumeroEstudiantes() {
+        return numeroEstudiantes;
+    }
+
+    public void setNumeroEstudiantes(int numeroEstudiantes) {
+        this.numeroEstudiantes = numeroEstudiantes;
+    }
+    
+    
+}

@@ -1,0 +1,53 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package estrategias.jigsawASHYI.Servicios.DiscusionGrupo.aprendiz;
+
+import BESA.ExceptionBESA;
+import BESA.Kernel.Agent.Event.EventBESA;
+import BESA.Kernel.Agent.GuardBESA;
+import BESA.Kernel.System.Directory.AgHandlerBESA;
+import co.edu.javeriana.ayllu.agents.communityagent.CommunityAgentState;
+import co.edu.javeriana.ayllu.agents.sessionmanageragent.SMA_ReceiveCARequestGuard;
+import co.edu.javeriana.ayllu.data.Ayllu_Data_Message;
+import co.edu.javeriana.ayllu.data.Ayllu_EventTypes;
+import estrategias.jigsawASHYI.Servicios.Discusion.DatosDiscusion;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ *
+ * @author Yolima
+ */
+public class GuardaRedactarPreguntasGrupo extends GuardBESA {
+
+    @Override
+    public synchronized void funcExecGuard(EventBESA ebesa) {
+        try {
+                System.out.println("En GuardaRedactarPreguntasGrupo");
+                
+                Ayllu_Data_Message datosLlegan = (Ayllu_Data_Message) ebesa.getData();
+                DatosDiscusion datos = (DatosDiscusion) datosLlegan.getMessage();
+                AgHandlerBESA myHandler = this.getAgent().getAdmLocal().getHandlerByAid(this.getAgent().getAid());
+                DatosDiscusionAprendizGrupo datosEnviar = new DatosDiscusionAprendizGrupo(datos.getTema(), new ArrayList<String>(), datos.getAliasSecretario());
+                               
+                //pedir redacción preguntas al estudiante
+                
+                 // sma 
+                CommunityAgentState miEstado = (CommunityAgentState) this.getAgent().getState();
+                AgHandlerBESA smaEstudiante = miEstado.getSessionManagerHandler();
+                Ayllu_Data_Message dataProfesor = new Ayllu_Data_Message(Ayllu_EventTypes.DISPLAY, myHandler,datosEnviar );
+                EventBESA evento = new EventBESA(SMA_ReceiveCARequestGuard.class.getName(),dataProfesor );
+                smaEstudiante.sendEvent(evento);
+                
+            }
+            catch (ExceptionBESA ex) {
+            Logger.getLogger(GuardaRedactarPreguntasGrupo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    
+}

@@ -1,0 +1,83 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package pruebaintegracion;
+
+import BESA.ExceptionBESA;
+import BESA.Kernel.Agent.Event.EventBESA;
+import BESA.Kernel.System.AdmBESA;
+import BESA.Kernel.System.Directory.AgHandlerBESA;
+import BESA.Log.ReportBESA;
+import co.edu.javeriana.ayllu.agents.factoryagent.FA_CMACreationGuard;
+import co.edu.javeriana.ayllu.agents.factoryagent.FA_CMAEndNestedServiceGuard;
+import co.edu.javeriana.ayllu.agents.factoryagent.FactoryAgent;
+import co.edu.javeriana.ayllu.data.Ayllu_Agent_Creation_Message;
+import estrategias.factory.EstadoFactory;
+import estrategias.factory.FactoryASHYI;
+import estrategias.jigsawASHYI.General.Estado_JigsawASHYI;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import servidorayllu.CreadorUsuarios;
+
+/**
+ *
+ * @author luis
+ */
+public class PruebaIntegracion_ServidorASHYI {
+    
+    private static AgHandlerBESA manejaFactory = null;
+    private static Ayllu_Agent_Creation_Message creacionJigsaw = null;
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        //BESA Administrator
+        AdmBESA admLocal=null;
+
+        try {
+            admLocal = AdmBESA.getInstance();
+            ReportBESA.info("Creando Contenedor");
+            
+            //TODO Recuperar de base de datos
+            new CreadorUsuarios().crearUsuarios();
+            //Se crea en struct y se añaden guardas por defecto al agente que herede de FactoryAgent
+        FactoryAgent.prepareInstance();
+        //Se crea la nueva instancia del agente que hereda de FactoryAgent
+        //args: ID, Estado, password
+        FactoryASHYI factory = new FactoryASHYI("FACTORY", new EstadoFactory(), 0.91);   
+        //se inicia el agente
+        factory.start();
+        inicio(admLocal);
+        } catch (Exception e) {
+            ReportBESA.error("ERROR INSTANCIANDO CONTENEDOR");
+            System.exit(-1);
+        }
+
+    }
+    
+     public static void inicio(AdmBESA admLocal)
+    {
+        try {
+            //Se obtiene el manejador de la fabrica
+            AgHandlerBESA handlerFactory = admLocal.getHandlerByAlias("FACTORY");
+            
+            Estado_JigsawASHYI estadoJS = new Estado_JigsawASHYI();
+            estadoJS.setCourseID("SIST_INT");//sistemas inteligentes
+            Ayllu_Agent_Creation_Message dataCreacion = new Ayllu_Agent_Creation_Message("CMA_JS", handlerFactory.getAgId(), FA_CMAEndNestedServiceGuard.class);
+            dataCreacion.setMessage(estadoJS);
+            EventBESA evento = new EventBESA(FA_CMACreationGuard.class.getName(), dataCreacion);
+            handlerFactory.sendEvent(evento);
+            
+//            AgHandlerBESA handlerCMA = admLocal.getHandlerByAlias("CMA_JS");
+//            Estado_Jigsaw miEstado = (Estado_Jigsaw) handlerCMA.getAg().getState();
+//            Ayllu_Data_Message misDatos = new Ayllu_Data_Message(Ayllu_EventTypes.COOP_REPLY, handlerFactory, miEstado);
+//            EventBESA evI = new EventBESA(GuardaControlarJigsaw.class.getName(), misDatos);
+//            handlerCMA.sendEvent(evI);
+            
+        } catch (ExceptionBESA ex) {
+            Logger.getLogger(PruebaIntegracion_ServidorASHYI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+}

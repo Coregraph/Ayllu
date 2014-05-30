@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/persistencia
+END
+GrupoPreguntas.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/36/trunk/PruebaIntegracion3_Servidor/src/persistencia/GrupoPreguntas.java
+END
+Rol.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/36/trunk/PruebaIntegracion3_Servidor/src/persistencia/Rol.java
+END
+Curso.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/36/trunk/PruebaIntegracion3_Servidor/src/persistencia/Curso.java
+END
+Persona.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/36/trunk/PruebaIntegracion3_Servidor/src/persistencia/Persona.java
+END
+Pregunta.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/36/trunk/PruebaIntegracion3_Servidor/src/persistencia/Pregunta.java
+END
+BinaryDAOFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/36/trunk/PruebaIntegracion3_Servidor/src/persistencia/BinaryDAOFactory.java
+END
+Estrategia.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/36/trunk/PruebaIntegracion3_Servidor/src/persistencia/Estrategia.java
+END
+Grupo.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/36/trunk/PruebaIntegracion3_Servidor/src/persistencia/Grupo.java
+END
+ProfileUsuarioAyllu.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/36/trunk/PruebaIntegracion3_Servidor/src/persistencia/ProfileUsuarioAyllu.java
+END
+TrabajoGrupal.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/36/trunk/PruebaIntegracion3_Servidor/src/persistencia/TrabajoGrupal.java
+END
+Servicio.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/36/trunk/PruebaIntegracion3_Servidor/src/persistencia/Servicio.java
+END
+Tema.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/36/trunk/PruebaIntegracion3_Servidor/src/persistencia/Tema.java
+END
+CrearDatos.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/persistencia/CrearDatos.java
+END

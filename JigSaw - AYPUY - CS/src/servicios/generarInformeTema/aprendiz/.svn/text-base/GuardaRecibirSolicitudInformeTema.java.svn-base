@@ -1,0 +1,83 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package servicios.generarInformeTema.aprendiz;
+
+import BESA.ExceptionBESA;
+import BESA.Kernel.Agent.Event.EventBESA;
+import BESA.Kernel.Agent.GuardBESA;
+import BESA.Kernel.System.Directory.AgHandlerBESA;
+import co.edu.javeriana.ayllu.data.Ayllu_Data_Message;
+import co.edu.javeriana.ayllu.data.Ayllu_EventTypes;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import persistencia.GrupoPreguntas;
+import servicios.generarInformeTema.secretario.EstadoSecretarioGIT;
+import servicios.generarInformeTema.secretario.GuardaRecibirRespuestasGenerarInformesTema;
+
+/**
+ *
+ * @author AylluAdmin
+ */
+public class GuardaRecibirSolicitudInformeTema extends GuardBESA {
+
+    @Override
+    public void funcExecGuard(EventBESA ebesa) {
+        try {
+            //try {
+            System.out.println("En GuardaRecibirSolicitudInformeTema " + this.getAgent().getAlias());
+
+
+            AgHandlerBESA myHandler = this.getAgent().getAdmLocal().getHandlerByAid(this.getAgent().getAid());
+            EstadoAprendizGIT miEstado = (EstadoAprendizGIT) myHandler.getAg().getState();
+            AgHandlerBESA secretaryHandler = this.getAgent().getAdmLocal().getHandlerByAlias(miEstado.getMisDatos().getAliasSecretario());
+
+            Ayllu_Data_Message theData = (Ayllu_Data_Message) ebesa.getData();
+            AgHandlerBESA senderHandler = theData.getSenderHandler();
+
+
+            switch (theData.getEventType()) {
+
+                case QUEST_REQUEST:
+
+                    manejarPeticion(miEstado.getMisDatos().getGruposPreguntasPorEstudiante());//Metodo que maneja la petición al IA
+
+                    //Esto es para efectos de prueba del protocolo
+                    String informe = "Informe que da respuesta a preguntas -> " + miEstado.getMisDatos().getGruposPreguntasPorEstudiante();
+                    manejarRespuesta(informe, myHandler, secretaryHandler);
+                    //-------------------------------------------------------
+
+                    break;
+
+                case QUEST_REPLY:
+
+                    Object OAInforme = (Object) theData.getMessage();
+                    manejarRespuesta(OAInforme, myHandler, senderHandler);  //Metodo que maneja la respuesta del IA
+
+                    break;
+
+            }
+        } catch (ExceptionBESA ex) {
+            Logger.getLogger(GuardaRecibirSolicitudInformeTema.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void manejarPeticion(GrupoPreguntas grupoPreguntas) {
+        //TODO Aca se debe informar al aprendiz, que debe realizar un informe basado en las preguntas seleccionadas para su teema
+        System.out.println("Por favor generar un OA resultado de sue preguntas seleccionadas " + grupoPreguntas);
+    }
+
+    private void manejarRespuesta(Object OAInforme, AgHandlerBESA myHandler, AgHandlerBESA senderHandler) throws ExceptionBESA {
+        //TODO Se debe esperar respuesta de la generación del informe para las preguntas seleccionadas.
+
+        try {
+            ((EstadoSecretarioGIT)senderHandler.getAg().getState()).getMisDatos().getOAPorAprendiz().put(myHandler.getAlias(), OAInforme);
+            Ayllu_Data_Message data = new Ayllu_Data_Message(Ayllu_EventTypes.QUEST_REQUEST, myHandler, null);
+            EventBESA event = new EventBESA(GuardaRecibirRespuestasGenerarInformesTema.class.getName(), data);
+            senderHandler.sendEvent(event);
+        } catch (ExceptionBESA ex) {
+            Logger.getLogger(GuardaRecibirSolicitudInformeTema.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+}

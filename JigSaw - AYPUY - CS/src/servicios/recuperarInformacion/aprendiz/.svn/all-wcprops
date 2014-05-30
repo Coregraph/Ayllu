@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/servicios/recuperarInformacion/aprendiz
+END
+DatosAprendizRI.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/servicios/recuperarInformacion/aprendiz/DatosAprendizRI.java
+END
+EstadoAprendizRI.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/servicios/recuperarInformacion/aprendiz/EstadoAprendizRI.java
+END
+GuardaNotificacionLecturasAwarnes.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/servicios/recuperarInformacion/aprendiz/GuardaNotificacionLecturasAwarnes.java
+END
+GuardaEstudiarOA.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/servicios/recuperarInformacion/aprendiz/GuardaEstudiarOA.java
+END

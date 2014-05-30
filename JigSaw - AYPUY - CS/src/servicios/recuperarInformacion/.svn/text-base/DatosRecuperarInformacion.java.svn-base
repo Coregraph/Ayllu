@@ -1,0 +1,93 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package servicios.recuperarInformacion;
+
+import BESA.Kernel.System.Directory.AgHandlerBESA;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import persistencia.Tema;
+
+/**
+ *
+ * @author Francisco
+ */
+public class DatosRecuperarInformacion {
+
+    
+    private HashMap<String, Tema> temasPorEstudiante;
+    private HashMap<String, Object> OAPorEstudiante;
+    private List<String> idAprendicesConTemaLeido;
+    private List<AgHandlerBESA> agentesComunidadAprendiz;
+    
+    public DatosRecuperarInformacion() {
+        temasPorEstudiante = new HashMap<String, Tema>();
+        OAPorEstudiante = new HashMap<String, Object>();
+        idAprendicesConTemaLeido = new ArrayList<String>();
+        agentesComunidadAprendiz = new ArrayList<AgHandlerBESA>();
+    }
+
+    /**
+     * @return the temasPorEstudiante
+     */
+    public HashMap<String, Tema> getTemasPorEstudiante() {
+        return temasPorEstudiante;
+    }
+
+    /**
+     * @param temasPorEstudiante the temasPorEstudiante to set
+     */
+    public void setTemasPorEstudiante(HashMap<String, Tema> temasPorEstudiante) {
+        this.temasPorEstudiante = temasPorEstudiante;
+    }
+
+    /**
+     * @return the idAprendicesConTemaLeido
+     */
+    public List<String> getIdAprendicesConTemaLeido() {
+        return idAprendicesConTemaLeido;
+    }
+
+    /**
+     * @param idAprendicesConTemaLeido the idAprendicesConTemaLeido to set
+     */
+    public void setIdAprendicesConTemaLeido(List<String> idAprendicesConTemaLeido) {
+        this.idAprendicesConTemaLeido = idAprendicesConTemaLeido;
+    }
+
+    /**
+     * @return the OAPorEstudiante
+     */
+    public HashMap<String, Object> getOAPorEstudiante() {
+        return OAPorEstudiante;
+    }
+
+    /**
+     * @param OAPorEstudiante the OAPorEstudiante to set
+     */
+    public void setOAPorEstudiante(HashMap<String, Object> OAPorEstudiante) {
+        this.OAPorEstudiante = OAPorEstudiante;
+    }
+
+    /**
+     * @return the agentesComunidadAprendiz
+     */
+    public List<AgHandlerBESA> getAgentesComunidadAprendiz() {
+        return agentesComunidadAprendiz;
+    }
+
+    /**
+     * @param agentesComunidadAprendiz the agentesComunidadAprendiz to set
+     */
+    public void setAgentesComunidadAprendiz(List<AgHandlerBESA> agentesComunidadAprendiz) {
+        this.agentesComunidadAprendiz = agentesComunidadAprendiz;
+    }
+    
+    
+
+    
+    
+}

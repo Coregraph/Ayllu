@@ -1,0 +1,68 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package estrategias.jigsawASHYI.Servicios.Discusion.aprendiz;
+
+import BESA.Kernel.Agent.Event.DataBESA;
+import java.util.ArrayList;
+import persistencia.Tema;
+
+/**
+ *
+ * @author Yolima
+ */
+public class DatosDiscusionAprendiz extends DataBESA{
+    
+    private Tema tema;
+    private ArrayList<String> preguntas;
+    private String aliasSecretario;
+    private String aliasCMA;
+
+    public DatosDiscusionAprendiz(Tema tem, ArrayList<String> preg, String aliasS) {
+        tema = tem;
+        preguntas = preg;
+        aliasSecretario = aliasS;
+        aliasCMA = "";
+    }
+
+    
+       /**
+     * @return the temaSeleccionado
+     */
+    public Tema getTema() {
+        return tema;
+    }
+
+    /**
+     * @param temaSeleccionado the temaSeleccionado to set
+     */
+    public void setTema(Tema tema) {
+        this.tema = tema;
+    }
+
+    public ArrayList<String> getPreguntas() {
+        return preguntas;
+    }
+
+    public void setPreguntas(ArrayList<String> estudiantes) {
+        this.preguntas = estudiantes;
+    }
+
+    public String getAliasSecretario() {
+        return aliasSecretario;
+    }
+
+    public void setAliasSecretario(String aliasSecretario) {
+        this.aliasSecretario = aliasSecretario;
+    }
+
+    public String getAliasCMA() {
+        return aliasCMA;
+    }
+
+    public void setAliasCMA(String aliasCMA) {
+        this.aliasCMA = aliasCMA;
+    }
+    
+}

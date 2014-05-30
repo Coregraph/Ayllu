@@ -1,0 +1,88 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package servicios.generarInformeTema.secretario;
+
+import BESA.ExceptionBESA;
+import BESA.Kernel.Agent.Event.EventBESA;
+import BESA.Kernel.Agent.GuardBESA;
+import BESA.Kernel.System.Directory.AgHandlerBESA;
+import co.edu.javeriana.ayllu.data.Ayllu_Data_Message;
+import co.edu.javeriana.ayllu.data.Ayllu_EventTypes;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import persistencia.Tema;
+import servicios.generarInformeTema.DatosGenerarInformeTema;
+import servicios.generarInformeTema.EstadoGenerarInformeTema;
+import servicios.generarInformeTema.GuardaRecibirOAGeneracionInformesTemas;
+
+/**
+ *
+ * @author AylluAdmin
+ */
+public class GuardaRecibirRespuestasGenerarInformesTema extends GuardBESA {
+
+    @Override
+    public void funcExecGuard(EventBESA ebesa) {
+        try {
+            System.out.println("En la guarda GuardaRecibirRespuestasGenerarInformesTema");
+            DatosSecretarioGIT misDatos = ((EstadoSecretarioGIT) this.getAgent().getState()).getMisDatos();
+            ArrayList<String> grupo = misDatos.getGrupo();
+            EstadoSecretarioGIT miEstado = (EstadoSecretarioGIT) this.getAgent().getState();
+            AgHandlerBESA myHandler = this.getAgent().getAdmLocal().getHandlerByAid(this.getAgent().getAid());
+            
+            Ayllu_Data_Message theData = (Ayllu_Data_Message) ebesa.getData();
+
+            //TODO Aca tambien se debe hacer todo lo relacionado con el awarenes
+
+            //TODO Aca tambien se debe hacer todo lo relacionado con el awarenes
+            
+            AgHandlerBESA handlerCMA = miEstado.getCommunityManagerHandler();
+
+            Tema tema = ((EstadoSecretarioGIT) this.getAgent().getState()).getMisDatos().getTemaManejado();
+            
+            switch (theData.getEventType()) {
+
+                case QUEST_REQUEST:
+
+                    
+                    manejarPeticion(tema);//Metodo que maneja la petición al IA
+
+                    //Esto se hace para efectos de prueba del protcolo
+                    String OAInformePrueba = "Informe OA tema "+tema;
+                    manejarRespuesta(tema, OAInformePrueba, myHandler, handlerCMA);
+                    //--------------------------------------------------------------
+
+                    break;
+
+                case QUEST_REPLY:
+
+                    Object OAInforme = theData.getMessage();
+                    manejarRespuesta(tema, OAInforme, myHandler, handlerCMA);  //Metodo que maneja la respuesta del IA
+
+                    break;
+
+            }
+        } catch (ExceptionBESA ex) {
+            Logger.getLogger(GuardaRecibirRespuestasGenerarInformesTema.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void manejarPeticion(Tema tema) {
+        System.out.println("Todos los estudaintes del tema " + tema + "cargaron sus respectivos OA");
+        System.out.println("Por favor generar el resumen integrado de temas");
+    }
+    
+    private void manejarRespuesta(Tema tema, Object OAresumenTema, AgHandlerBESA myHandler, AgHandlerBESA senderHandler) throws ExceptionBESA {
+        DatosGenerarInformeTema datosGenerarInformeTema = new DatosGenerarInformeTema();
+        datosGenerarInformeTema.getOAResumenPorTema().put(tema, OAresumenTema);
+        EstadoGenerarInformeTema estadoGenerarInformeTema = new EstadoGenerarInformeTema(datosGenerarInformeTema);
+
+        
+        Ayllu_Data_Message data = new Ayllu_Data_Message(Ayllu_EventTypes.START_COOP, myHandler, estadoGenerarInformeTema);
+        EventBESA event = new EventBESA(GuardaRecibirOAGeneracionInformesTemas.class.getName(), data);
+        senderHandler.sendEvent(event);
+    }
+}

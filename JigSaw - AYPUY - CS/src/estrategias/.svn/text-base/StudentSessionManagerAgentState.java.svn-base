@@ -1,0 +1,32 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package estrategias;
+
+import BESA.Kernel.System.Directory.AgHandlerBESA;
+import co.edu.javeriana.ayllu.agents.sessionmanageragent.SessionManagerAgentState;
+
+/**
+ *
+ * @author AylluAdmin
+ */
+public class StudentSessionManagerAgentState extends SessionManagerAgentState {
+    private String nombre;
+    public StudentSessionManagerAgentState(AgHandlerBESA representativeAgentHandler, String nombre) {
+        super(representativeAgentHandler);
+        this.nombre = nombre;
+       
+    }
+
+  
+
+    public String getNombre() {
+        return nombre;
+    }
+
+
+    
+    
+    
+}

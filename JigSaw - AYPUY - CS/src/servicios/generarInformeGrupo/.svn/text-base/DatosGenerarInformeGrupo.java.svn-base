@@ -1,0 +1,104 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package servicios.generarInformeGrupo;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import persistencia.Tema;
+
+/**
+ *
+ * @author Francisco
+ */
+public class DatosGenerarInformeGrupo {
+
+
+    private HashMap<Tema, Object> OAResumenPorTema;
+    private ArrayList<String> grupos;
+    private ArrayList<String> rolesPorGrupo;
+    private int numeroOAenviado;
+    private int numeroRetroalimentacionConfirmado;
+    private Tema tema;
+
+    public DatosGenerarInformeGrupo() {
+        OAResumenPorTema = new HashMap<Tema, Object>();
+        grupos = new ArrayList<String>();
+        rolesPorGrupo = new ArrayList<String>();
+        numeroOAenviado = 0;
+        numeroRetroalimentacionConfirmado = 0;
+        tema = new Tema();
+    }
+
+
+    /**
+     * @return the grupos
+     */
+    public ArrayList<String> getGrupos() {
+        return grupos;
+    }
+
+    /**
+     * @param grupos the grupos to set
+     */
+    public void setGrupos(ArrayList<String> grupos) {
+        this.grupos = grupos;
+    }
+
+    /**
+     * @return the rolesPorGrupo
+     */
+    public ArrayList<String> getRolesPorGrupo() {
+        return rolesPorGrupo;
+    }
+
+    /**
+     * @param rolesPorGrupo the rolesPorGrupo to set
+     */
+    public void setRolesPorGrupo(ArrayList<String> rolesPorGrupo) {
+        this.rolesPorGrupo = rolesPorGrupo;
+    }
+    
+    /**
+     * @return the OAResumenPorTema
+     */
+    public HashMap<Tema, Object> getOAResumenPorTema() {
+        return OAResumenPorTema;
+    }
+
+    /**
+     * @param OAResumenPorTema the OAResumenPorTema to set
+     */
+    public void setOAResumenPorTema(HashMap<Tema, Object> OAResumenPorTema) {
+        this.OAResumenPorTema = OAResumenPorTema;
+    }
+
+    public int getNumeroOAenviado() {
+        return numeroOAenviado;
+    }
+
+    public void setNumeroOAenviado(int numeroOAenviado) {
+        this.numeroOAenviado = numeroOAenviado;
+    }
+
+    public Tema getTema() {
+        return tema;
+    }
+
+    public void setTema(Tema tema) {
+        this.tema = tema;
+    }
+
+    public int getNumeroRetroalimentacionConfirmado() {
+        return numeroRetroalimentacionConfirmado;
+    }
+
+    public void setNumeroRetroalimentacionConfirmado(int numeroRetroalimentacionConfirmado) {
+        this.numeroRetroalimentacionConfirmado = numeroRetroalimentacionConfirmado;
+    }
+
+   
+    
+}

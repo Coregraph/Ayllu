@@ -1,0 +1,97 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package estrategias.jigsawASHYI.Servicios.Discusion;
+
+import BESA.ExceptionBESA;
+import BESA.Kernel.Agent.Event.EventBESA;
+import BESA.Kernel.Agent.GuardBESA;
+import BESA.Kernel.System.Directory.AgHandlerBESA;
+import Util.Lock;
+import co.edu.javeriana.ayllu.agents.communitymanageragent.CommunityManagerAgent;
+import co.edu.javeriana.ayllu.data.Ayllu_Data_Message;
+import co.edu.javeriana.ayllu.data.Ayllu_EventTypes;
+import estrategias.jigsawASHYI.Servicios.Discusion.Secretario.Estado_JigSaw_DiscusionSecretario;
+import estrategias.jigsawASHYI.Servicios.Discusion.Secretario.GuardaRecibirPreguntasAprendices;
+import estrategias.jigsawASHYI.Servicios.Discusion.Secretario.GuardaRecibirRetroalimentacionPreguntas;
+import estrategias.jigsawASHYI.Servicios.Discusion.aprendiz.GuardaEnviarPreguntasSecretario;
+import estrategias.jigsawASHYI.Servicios.Discusion.aprendiz.GuardaRedactarPreguntas;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ *
+ * @author Yolima
+ */
+public class GuardaIniciarDiscusion extends GuardBESA {
+
+    @Override
+    public synchronized void funcExecGuard(EventBESA ebesa) {
+      
+            System.out.println("En GuardaIniciarDiscusion");
+            
+            try {
+
+                AgHandlerBESA myHandler = this.getAgent().getAdmLocal().getHandlerByAid(this.getAgent().getAid());
+
+                Estado_JigSaw_Discusion miEstado = (Estado_JigSaw_Discusion) this.getAgent().getState();
+                                        
+                CommunityManagerAgent agenteCMA = (CommunityManagerAgent) myHandler.getAg();
+                
+                DatosDiscusion datos = miEstado.getDatos();
+                List<Class> guardas = new ArrayList<Class>();
+                guardas.add(GuardaEnviarPreguntasSecretario.class);
+                guardas.add(GuardaRedactarPreguntas.class);
+                guardas.add(GuardaRecibirPreguntasAprendices.class);
+                guardas.add(GuardaRecibirRetroalimentacionPreguntas.class);
+                
+                AgHandlerBESA agenteComunidadParticipante = null;
+
+                datos.setNumeroEstudiantes(datos.getGrupo().size());
+                String idPersona = "";
+                for (int i = 0;i < datos.getGrupo().size(); i++)
+                {
+                    idPersona = datos.getGrupo().get(i);
+                    String aliasSMA = "SMA_" + idPersona;
+                    AgHandlerBESA handlerPersona = agenteCMA.getAdmLocal().getHandlerByAlias(aliasSMA);
+                    
+                    if(datos.getGrupoRoles().get(i).equals("Secretario"))                     {
+                         
+                         Estado_JigSaw_DiscusionSecretario estadoSec = new Estado_JigSaw_DiscusionSecretario(null,null,null);
+                         estadoSec.setNumEstudiantes(datos.getGrupo().size());
+                         Lock.getInstance().lock(); 
+                         agenteComunidadParticipante = agenteCMA.createCommunityAgent(datos.getGrupoRoles().get(i), handlerPersona, guardas,estadoSec );
+                         datos.setAliasSecretario(agenteComunidadParticipante.getAlias());
+                         Lock.getInstance().unlock();
+                     }
+                    else
+                    {
+                        Lock.getInstance().lock(); 
+                        agenteComunidadParticipante = agenteCMA.createCommunityAgent(datos.getGrupoRoles().get(i), handlerPersona, guardas);
+                        Lock.getInstance().unlock();
+                    }
+                }                
+                
+                List<AgHandlerBESA> handlerEstudiantes = miEstado.getCommunityAgentsHandlersbyRole("Participante");
+
+                 for (int i = 0; i < handlerEstudiantes.size(); i++) {
+
+                    Ayllu_Data_Message misDatos = new Ayllu_Data_Message(Ayllu_EventTypes.QUEST_REQUEST, myHandler, miEstado.getDatos());
+                    EventBESA evI = new EventBESA(GuardaRedactarPreguntas.class.getName(), misDatos);
+                    handlerEstudiantes.get(i).sendEvent(evI);
+                }
+             
+            }
+        catch (InterruptedException ex) {
+            Logger.getLogger(GuardaIniciarDiscusion.class.getName()).log(Level.SEVERE, null, ex);
+        }        catch (ExceptionBESA ex) {
+            Logger.getLogger(GuardaIniciarDiscusion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    
+}

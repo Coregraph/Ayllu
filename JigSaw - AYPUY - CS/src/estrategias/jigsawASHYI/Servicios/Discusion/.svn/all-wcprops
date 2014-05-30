@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/estrategias/jigsawASHYI/Servicios/Discusion
+END
+Estado_JigSaw_Discusion.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/!svn/ver/84/trunk/PruebaIntegracion3_Servidor/src/estrategias/jigsawASHYI/Servicios/Discusion/Estado_JigSaw_Discusion.java
+END
+CMA_JigSaw_Discusion.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/estrategias/jigsawASHYI/Servicios/Discusion/CMA_JigSaw_Discusion.java
+END
+DatosDiscusion.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/estrategias/jigsawASHYI/Servicios/Discusion/DatosDiscusion.java
+END
+GuardaIniciarDiscusion.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/estrategias/jigsawASHYI/Servicios/Discusion/GuardaIniciarDiscusion.java
+END
+GuardaRecibirPreguntas.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/!svn/ver/144/trunk/PruebaIntegracion3_Servidor/src/estrategias/jigsawASHYI/Servicios/Discusion/GuardaRecibirPreguntas.java
+END

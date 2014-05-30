@@ -1,0 +1,379 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package estrategias.jigsawASHYI.General;
+
+import BESA.ExceptionBESA;
+import BESA.Kernel.Agent.Event.EventBESA;
+import BESA.Kernel.Agent.GuardBESA;
+import BESA.Kernel.System.Directory.AgHandlerBESA;
+import besa_adaptado.CreadorEjemplo_Mateo;
+import besa_adaptado.adaptador.ConsultaEnriquecida;
+import co.edu.javeriana.ayllu.agents.factoryagent.FA_CMACreationGuard;
+import co.edu.javeriana.ayllu.agents.factoryagent.FA_CMAEndNestedServiceGuard;
+import java.util.HashMap;
+import util.Simulador;
+import co.edu.javeriana.ayllu.data.Ayllu_Agent_Creation_Message;
+import co.edu.javeriana.ayllu.data.Ayllu_Data_Message;
+import co.edu.javeriana.ayllu.data.Ayllu_EventTypes;
+import estrategias.jigsawASHYI.Servicios.Discusion.DatosDiscusion;
+import estrategias.jigsawASHYI.Servicios.Discusion.Estado_JigSaw_Discusion;
+import estrategias.jigsawASHYI.Servicios.DiscusionGrupo.Estado_JigSaw_DiscusionGrupo;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import mateo_package.NuevosEquiposAES;
+import persistencia.Tema;
+import service.Profesor.DatosInstrucciones;
+import service.Profesor.EstadoProfesor;
+import service.Profesor.GuardaDarInstrucciones;
+import servicios.asignarTema.DatosAsignarTema;
+import servicios.asignarTema.EstadoAsignarTema;
+import servicios.generarInformeGrupo.DatosGenerarInformeGrupo;
+import servicios.generarInformeGrupo.EstadoGenerarInformeGrupo;
+import servicios.generarInformeTema.DatosGenerarInformeTema;
+import servicios.generarInformeTema.EstadoGenerarInformeTema;
+import servicios.recuperarInformacion.DatosRecuperarInformacion;
+import servicios.recuperarInformacion.EstadoRecuperarInformacion;
+
+/**
+ *
+ * @author Yolima
+ */
+public class GuardaControlarJigsawASHYI extends GuardBESA {
+
+    @Override
+    public void funcExecGuard(EventBESA ebesa) {
+        
+        try {
+            
+            //Se obtiene el estado del CMA de la estrategia
+            AgHandlerBESA handlerCMA = this.getAgent().getAdmLocal().getHandlerByAlias("CMA_JS");
+            Estado_JigsawASHYI miEstado = (Estado_JigsawASHYI) handlerCMA.getAg().getState();
+            System.out.println("En GuardaControlarJigsawASHYI "+ miEstado.getEstadoEstartegia());
+            //Se obtiene el manejador de la fabrica
+            AgHandlerBESA handlerFactory = this.getAgent().getAdmLocal().getHandlerByAlias("FACTORY");
+
+
+            EventBESA evento = null;
+            Ayllu_Agent_Creation_Message dataCreacion;
+            //Se actualiza el estadoAyllu_Data_Message del CMA
+            
+            Ayllu_Data_Message theData;
+            Ayllu_Data_Message data;
+            AgHandlerBESA handlerProf = null;
+            EstadoProfesor estadoP ;
+            
+            int numeroGruposT = 0;
+            String idPersona = "";
+            
+            switch (miEstado.getEstadoEstartegia()) {
+                case Estado_JigsawASHYI.INICIAL:                    
+                    //Enviar guarda a si mismo                  
+                    data = new Ayllu_Data_Message(Ayllu_EventTypes.QUEST_REQUEST, handlerCMA, Estado_JigsawASHYI.INVOCAR_MATEO_GB);
+                    evento = new EventBESA(GuardaRespuestaMATEO.class.getName(), data);
+                    handlerCMA.sendEvent(evento);
+                    System.out.println("Paso " + miEstado.getEstadoEstartegia()+ " terminado 1");
+                    break;
+                case Estado_JigsawASHYI.INVOCAR_MATEO_GB:
+                    System.out.println("Paso " + miEstado.getEstadoEstartegia()+ " Inicia 2");
+                    //INVOCACIÓN A MATEO!!!!!
+                    CreadorEjemplo_Mateo ejemplo = new CreadorEjemplo_Mateo("Crear_grupos_Base");
+                    ejemplo.lanzarEjemplo(this.getAgent().getAlias(), GuardaRespuestaMATEO.class.getName());
+                    //FIN_INVOCACIÓN A MATEO!!!!!
+                    System.out.println("Paso " + miEstado.getEstadoEstartegia()+ " terminado 2");
+                    break;
+                case Estado_JigsawASHYI.INVOCAR_MATEO_GT:  
+                    System.out.println("Paso " + miEstado.getEstadoEstartegia()+ " Inicia 3");
+                    //Segun la información suministrada por MATEO, se procede a llenar los datos en el estado del CMA Jigsaw
+                    //ConsultaEnriquecida resp = (ConsultaEnriquecida)ebesa.getData();
+                    ConsultaEnriquecida resp = (ConsultaEnriquecida) ebesa.getData();
+                    //resp.setEnriquecida(theData.getMessage());
+                    NuevosEquiposAES equipos = resp.getEnriquecida();
+                    miEstado.setNumeroGruposBase(equipos.getEquiposConformados().size());
+                    ArrayList<ArrayList<String>> gruposB = equipos.getEquiposConformados();// [[e1][e2]..[e7]] [[e1][e2]..[e7]] [[e1][e2]..[e7]]
+                    ArrayList<ArrayList<String>> gruposRB = equipos.getRolesEquipos();// [[presenta][estudiante]...[estudiante]] [[]]
+                         
+                    List<String> est = new ArrayList<String>();
+                    for(int i = 0;i <gruposB.size();i++)
+                        for(int j = 0;j <gruposB.get(i).size();j++)
+                        {
+                           int y = 0;
+                            String linea = gruposB.get(i).get(j);
+                            String [] campos = linea.split(":");
+                            while(y<campos.length){
+                                if(!campos[y].equals("Estudiante"))
+                                    idPersona = campos[y];
+                                y++;
+                            }
+                            gruposB.get(i).set(j, idPersona);
+                        }
+                    
+                    for(int i = 0; i<gruposRB.size();i++)
+                    {
+                        int numParticipantes = 0;//verificacion que haya rol secretario
+                         for(int j = 0; j<gruposRB.get(i).size();j++)
+                         {
+                            if (gruposRB.get(i).get(j).equals("Participante"))
+                            {
+                                numParticipantes++;
+                            }
+                         }
+                         if(numParticipantes==gruposRB.get(i).size())
+                         {
+                             gruposRB.get(i).set(0, "Secretario");
+                         }
+                    }
+                    
+                    miEstado.setGruposBase(gruposB);
+                    miEstado.setRolesPorGrupoBase(gruposRB);
+                    DatosCrearProfesor datosEnviar = new DatosCrearProfesor(est);
+                    Ayllu_Data_Message datos = new Ayllu_Data_Message(Ayllu_EventTypes.QUEST_REQUEST, handlerCMA, datosEnviar);
+                    evento = new EventBESA(GuardaCrearProfesor.class.getName(), datos);
+                    handlerCMA.sendEvent(evento);
+                                        
+                    //INVOCACIÓN A MATEO!!!!!
+                    CreadorEjemplo_Mateo ejemploT = new CreadorEjemplo_Mateo("Crear_grupos_Tema");
+                    ejemploT.lanzarEjemplo(this.getAgent().getAlias(), GuardaRespuestaMATEO.class.getName());
+                    //FIN_INVOCACIÓN A MATEO!!!!!
+                    System.out.println("Paso " + miEstado.getEstadoEstartegia()+ " terminado 3");    
+                    break;
+                case Estado_JigsawASHYI.ASIGNAR_TEMAS:
+                    System.out.println("Paso " + miEstado.getEstadoEstartegia()+ " Inicia 4");
+                    
+                    //Segun la información suministrada por MATEO, se procede a llenar los datos en el estado del CMA Jigsaw
+                    ConsultaEnriquecida respT = (ConsultaEnriquecida) ebesa.getData();
+                    NuevosEquiposAES equiposT = respT.getEnriquecida();
+                    ArrayList<ArrayList<String>> gruposT = equiposT.getEquiposConformados();// [[e1][e2]..[e7]] [[e1][e2]..[e7]] [[e1][e2]..[e7]]
+                    ArrayList<ArrayList<String>> gruposRT = equiposT.getRolesEquipos();// [[presenta][estudiante]...[estudiante]] [[]]
+                    
+                    
+                    for(int i = 0; i<gruposRT.size();i++)
+                    {
+                        int numParticipantes = 0;//verificacion que haya rol secretario
+                         for(int j = 0; j<gruposRT.get(i).size();j++)
+                         {
+                            if (gruposRT.get(i).get(j).equals("Participante"))
+                            {
+                                numParticipantes++;
+                            }
+                         }
+                         if(numParticipantes==gruposRT.get(i).size())
+                         {
+                             gruposRT.get(i).set(0, "Secretario");
+                         }
+                    }
+                    
+                    ArrayList<ArrayList<String>> grupos = gruposT;
+                    
+                     for (int i = 0; i < gruposT.size(); i++) 
+                     {
+                         for (int j = 0; j < gruposT.get(i).size(); j++) 
+                        {
+                            int y = 0;
+                            String linea = gruposT.get(i).get(j);
+                            String [] campos = linea.split(":");
+                            while(y<campos.length){
+                                if(!campos[y].equals("Estudiante"))
+                                    idPersona = campos[y];
+                                y++;
+                            }
+                            grupos.get(i).set(j, idPersona);
+                        }
+                     }
+                    
+                    miEstado.setGruposTema(grupos);
+                    miEstado.setRolesPorGrupoTema(gruposRT);
+                    
+                    //ArrayList<ArrayList<String>> grupos = Simulador.simularCreacionGrupos();// [[e1][e2]..[e7]] [[e1][e2]..[e7]] [[e1][e2]..[e7]]
+                    //ArrayList<ArrayList<String>> roles = Simulador.simularAsignacionRoles(grupos);// [[presenta][estudiante]...[estudiante]] [[]]/*/
+
+                    int numeroMinimoTemas = miEstado.getGruposBase().get(0).size();//El minimo de temas debes er igual al numero de estudiantes por grupo
+                    int numeroMinimoGruposPreguntas = miEstado.getGruposBase().size();//El minimo de temas debes er igual al numero de estudiantes por grupo
+                    int numeroMinimoPreguntasPorPersona = 2;
+                                     
+                    handlerProf = miEstado.getCommunityAgentsHandlersbyRole("Profesor").get(0);
+                    estadoP = (EstadoProfesor) handlerProf.getAg().getState();
+                    estadoP.getCmas().add(handlerCMA.getAlias());
+                    
+                    //Luego de invocar a MATEO se obtiene lo siguiente
+                    ArrayList<Tema> temas = Simulador.simularTemas(numeroMinimoTemas);
+                    miEstado.setTemas(temas);
+                   // HashMap<Tema, List<GrupoPreguntas>> gruposPreguntasPorTema = Simulador.simularGruposPreguntasPorTemas(temas, numeroMinimoGruposPreguntas, numeroMinimoPreguntasPorPersona);
+                    numeroGruposT = gruposT.size();
+                    miEstado.setNumeroGruposTema(numeroGruposT);
+                    
+                    //Se procede a la creacion de los CMA_PT presentar tema
+                    DatosAsignarTema datosAsignarTema = new DatosAsignarTema(grupos, gruposRT, temas);
+                    datosAsignarTema.setTemasDisponibles(temas);
+                    EstadoAsignarTema estadoAsignarTema = new EstadoAsignarTema(datosAsignarTema);
+                    estadoAsignarTema.setCourseID("SIST_INT");//sistemas inteligentes
+                    dataCreacion = new Ayllu_Agent_Creation_Message("CMA_AT", handlerFactory.getAgId(), FA_CMAEndNestedServiceGuard.class);
+                    dataCreacion.setMessage(estadoAsignarTema);
+                    evento = new EventBESA(FA_CMACreationGuard.class.getName(), dataCreacion);
+                    handlerFactory.sendEvent(evento);
+                    
+                    //prof                        
+                    estadoP = (EstadoProfesor)handlerProf.getAg().getState();
+                    estadoP.getCmas().add("CMA_AT");
+                    
+                    break;
+              case Estado_JigsawASHYI.DAR_INSTRUCCIONES:      
+                    
+                    //enviar instrucciones Tema
+                  handlerProf = miEstado.getCommunityAgentsHandlersbyRole("Profesor").get(0);
+                  DatosInstrucciones datosEnvia = new DatosInstrucciones("instrucciones");
+                  Ayllu_Data_Message datosInst = new Ayllu_Data_Message(Ayllu_EventTypes.QUEST_REPLY, handlerCMA, datosEnvia);
+                  EventBESA evI = new EventBESA(GuardaDarInstrucciones.class.getName(), datosInst);
+                  handlerProf.sendEvent(evI);                    
+                  System.out.println("Paso " + miEstado.getEstadoEstartegia()+ " terminado 4");
+                break;                
+                case Estado_JigsawASHYI.RECUPERAR_INFORMACION:
+                    theData = (Ayllu_Data_Message) ebesa.getData();
+                    Estado_JigsawASHYI theMessage = (Estado_JigsawASHYI) theData.getMessage();
+                    HashMap<String, Tema> aprendicesAceptaronTema = theMessage.getTemasPorEstudiante();
+
+                    //Se procede a la creacion del CMA_RI
+                    DatosRecuperarInformacion datosRI = new DatosRecuperarInformacion();
+                    datosRI.setTemasPorEstudiante(aprendicesAceptaronTema);
+                    EstadoRecuperarInformacion estadoRecuperarInformacion = new EstadoRecuperarInformacion(datosRI);
+                    estadoRecuperarInformacion.setCourseID("SIST_INT");
+                    dataCreacion = new Ayllu_Agent_Creation_Message("CMA_RI", handlerFactory.getAgId(), FA_CMAEndNestedServiceGuard.class);
+                    dataCreacion.setMessage(estadoRecuperarInformacion);
+                    evento = new EventBESA(FA_CMACreationGuard.class.getName(), dataCreacion);
+                    handlerFactory.sendEvent(evento);
+                    //prof
+                     handlerProf = miEstado.getCommunityAgentsHandlersbyRole("Profesor").get(0);
+                     estadoP = (EstadoProfesor)handlerProf.getAg().getState();
+                     estadoP.getCmas().add("CMA_RI");
+                     
+                     System.out.println("Paso " + miEstado.getEstadoEstartegia()+ " terminado 5");
+                     
+                    break;
+                case Estado_JigsawASHYI.DISCUSION_TEMATICA:                    
+                    theData = (Ayllu_Data_Message) ebesa.getData();
+                    theMessage = (Estado_JigsawASHYI) theData.getMessage();
+
+                    //Se procede a la creacion del CMA_APT --> discusion
+                    AgHandlerBESA handlerCT = this.getAgent().getAdmLocal().getHandlerByAlias("CMA_AT");//coger el tema de cada grupo
+                    
+                    for (int i = 0; i < miEstado.getNumeroGruposTema(); i++) 
+                    {
+                        ArrayList<String> grupo = miEstado.getGruposTema().get(i);
+                        EstadoAsignarTema estadoCT = (EstadoAsignarTema)handlerCT.getAg().getState();  
+                        Tema tema = estadoCT.getMisDatos().getTemasAsignadosPorEstudiantePorGrupo().get(estadoCT.getCommunityAgentsHandlersbyRole("Secretario").get(0).getAlias());
+                        
+                        DatosDiscusion datosAsignarPreguntas = new DatosDiscusion(tema, grupo, estadoCT.getMisDatos().getRolesGrupo().get(i), estadoCT.getMisDatos().getGrupo().size());
+                        Estado_JigSaw_Discusion estadoPreguntas = new Estado_JigSaw_Discusion(datosAsignarPreguntas);
+                        estadoPreguntas.setCourseID("SIST_INT");
+                        dataCreacion = new Ayllu_Agent_Creation_Message("CMA_DT"+i, handlerFactory.getAgId(), FA_CMAEndNestedServiceGuard.class);
+                        dataCreacion.setMessage(estadoPreguntas);
+                        evento = new EventBESA(FA_CMACreationGuard.class.getName(), dataCreacion); 
+                        handlerFactory.sendEvent(evento);
+                        //prof
+                         handlerProf = miEstado.getCommunityAgentsHandlersbyRole("Profesor").get(0);
+                         estadoP = (EstadoProfesor)handlerProf.getAg().getState();
+                         estadoP.getCmas().add("CMA_DT"+i);
+                    }
+                    
+                     //ABRIR CHAT
+                     //////////////////////////////////////////////////////////
+                                        
+                     System.out.println("Paso " + miEstado.getEstadoEstartegia()+ " terminado 6");
+                    break;
+                case Estado_JigsawASHYI.GENERAR_INFORME_TEMA:
+                    theData = (Ayllu_Data_Message) ebesa.getData();                    
+
+                    //Se procede a la creacion del CMA_GIT
+                     
+                    for (int i = 0; i < miEstado.getNumeroGruposTema(); i++) 
+                    {
+                        DatosGenerarInformeTema datosGenerarInformeTema = new DatosGenerarInformeTema();
+                        datosGenerarInformeTema.setTemas(miEstado.getTemas());
+                        datosGenerarInformeTema.setEstudiantes(miEstado.getGruposTema().get(i));
+                        datosGenerarInformeTema.setTemaManejado(miEstado.getTemas().get(i));
+                        datosGenerarInformeTema.setRolesEstudiantes(miEstado.getRolesPorGrupoTema().get(i));
+                        EstadoGenerarInformeTema estadoGenerarInformeTema = new EstadoGenerarInformeTema(datosGenerarInformeTema);
+                        estadoGenerarInformeTema.setCourseID("SIST_INT");
+                        dataCreacion = new Ayllu_Agent_Creation_Message("CMA_GIT"+i, handlerFactory.getAgId(), FA_CMAEndNestedServiceGuard.class);
+                        dataCreacion.setMessage(estadoGenerarInformeTema);
+                        evento = new EventBESA(FA_CMACreationGuard.class.getName(), dataCreacion);
+                        handlerFactory.sendEvent(evento);    
+                        //prof
+                         handlerProf = miEstado.getCommunityAgentsHandlersbyRole("Profesor").get(0);
+                         estadoP = (EstadoProfesor)handlerProf.getAg().getState();
+                         estadoP.getCmas().add("CMA_GIT"+i);
+                    }
+                    System.out.println("Paso " + miEstado.getEstadoEstartegia()+ " terminado 7"); 
+                    break;
+                case Estado_JigsawASHYI.DISCUSION_GRUPO:
+                                        
+                    theData = (Ayllu_Data_Message) ebesa.getData();
+                    theMessage = (Estado_JigsawASHYI) theData.getMessage();
+                    handlerProf = miEstado.getCommunityAgentsHandlersbyRole("Profesor").get(0);
+
+                    //Se procede a la creacion del CMA_DG --> discusion grupo base
+                    
+                    for (int i = 0; i <miEstado.getNumeroGruposBase(); i++) 
+                    {
+                        estadoP = (EstadoProfesor) handlerProf.getAg().getState();  
+                        Tema tema = miEstado.getTemas().get(i);
+                        DatosDiscusion datosOVA = new DatosDiscusion(tema, miEstado.getGruposBase().get(i),miEstado.getRolesPorGrupoBase().get(i),miEstado.getGruposBase().get(i).size());
+                        Estado_JigSaw_DiscusionGrupo estadoPreguntas = new Estado_JigSaw_DiscusionGrupo(datosOVA, miEstado.getGruposBase().get(i).size());
+                        estadoPreguntas.setCourseID("SIST_INT");
+                        dataCreacion = new Ayllu_Agent_Creation_Message("CMA_DG"+i, handlerFactory.getAgId(), FA_CMAEndNestedServiceGuard.class);
+                        dataCreacion.setMessage(estadoPreguntas);
+                        evento = new EventBESA(FA_CMACreationGuard.class.getName(), dataCreacion); 
+                        handlerFactory.sendEvent(evento);
+                        //prof
+                         estadoP = (EstadoProfesor)handlerProf.getAg().getState();
+                         estadoP.getCmas().add("CMA_DG"+i);
+                    }
+                     //ABRIR CHAT
+                     //////////////////////////////////////////////////////////
+                    System.out.println("Paso " + miEstado.getEstadoEstartegia()+ " terminado 8");
+                     break;                   
+                case Estado_JigsawASHYI.GENERAR_INFORME_GRUPO:
+                    theData = (Ayllu_Data_Message) ebesa.getData();
+                    theMessage = (Estado_JigsawASHYI) theData.getMessage();
+                    ArrayList<Tema> temasG = Simulador.simularTemas(miEstado.getNumeroGruposBase());
+                    //Se procede a la creacion del CMA_GIG
+                    for (int i = 0; i <miEstado.getNumeroGruposBase(); i++) 
+                    {
+                        miEstado = ((Estado_JigsawASHYI) this.getAgent().getState());
+                        DatosGenerarInformeGrupo datosGenerarInformeGrupo = new DatosGenerarInformeGrupo();
+                        datosGenerarInformeGrupo.setGrupos(miEstado.getGruposBase().get(i));
+                        datosGenerarInformeGrupo.setOAResumenPorTema(miEstado.getOaPorTema());
+                        datosGenerarInformeGrupo.setRolesPorGrupo(miEstado.getRolesPorGrupoBase().get(i));
+                        datosGenerarInformeGrupo.setTema(temasG.get(i));
+                        EstadoGenerarInformeGrupo estadoGenerarInformeGrupo = new EstadoGenerarInformeGrupo(datosGenerarInformeGrupo);
+                        estadoGenerarInformeGrupo.setCourseID("SIST_INT");
+                        dataCreacion = new Ayllu_Agent_Creation_Message("CMA_GIG"+i, handlerFactory.getAgId(), FA_CMAEndNestedServiceGuard.class);
+                        dataCreacion.setMessage(estadoGenerarInformeGrupo);
+                        evento = new EventBESA(FA_CMACreationGuard.class.getName(), dataCreacion);
+                        handlerFactory.sendEvent(evento);
+                        //prof
+                         handlerProf = miEstado.getCommunityAgentsHandlersbyRole("Profesor").get(0);
+                         estadoP = (EstadoProfesor)handlerProf.getAg().getState();
+                         estadoP.getCmas().add("CMA_GIG"+i);
+                    }
+                    System.out.println("Paso " + miEstado.getEstadoEstartegia()+ " terminado 9"); 
+                    break;
+                    
+                case Estado_JigsawASHYI.FINAL:
+                    System.out.println("FIN del servicio");
+                    this.getAgent().shutdownAgent();
+                    System.out.println("Paso " + miEstado.getEstadoEstartegia()+ " terminado 10");
+                    break;
+            }
+//            if (evento != null) {
+//                handlerFactory.sendEvent(evento);
+//            }  
+            evento = null;
+        } catch (ExceptionBESA ex) {
+            Logger.getLogger(CMA_Jigsaw.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+}
